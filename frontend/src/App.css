@@ -1,0 +1,155 @@
+/* .todo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 200px;
+  margin:10px;
+  background-color: bisque;
+  border: 1px solid rgb(23, 22, 22);
+  border-radius: 5px;
+  overflow-x: auto;
+
+}
+.app-container {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+.todo-container h1{
+  width: auto;
+  height: auto;
+  font-size: 1.5rem;
+  font-family:'Times New Roman', Times, serif;
+  border-bottom: 2px solid rgb(240, 198, 130);
+  padding-bottom: 5px;
+}
+
+.todo-container h2{
+  font-style: oblique;
+  font-weight: 500;
+
+}
+.createTodo-container{
+  display: flex;
+  justify-content: center;
+}
+
+.createTodo > * {
+  height:30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.createTodo > button {
+  background-color: hsla(197, 72%, 53%, 0.638);
+}
+
+.createTodo {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.todos-container {
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+
+/* Overall App Container */
+.app-container {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Create Todo Section */
+.createTodo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.createTodo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  gap: 10px;
+}
+
+.createTodo > * {
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.createTodo > button {
+  background-color: #4fc3f7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.createTodo > button:hover {
+  background-color: #039be5;
+}
+
+/* Todos Grid */
+.todos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual Todo Card */
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffe0b2;
+  border: 1px solid #d7ccc8;
+  border-radius: 12px;
+  width: 220px;
+  height: 180px; /* Ensures consistent height */
+  padding: 15px 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.todo-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.todo-container h1 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 171, 64, 0.7);
+  padding-bottom: 4px;
+  font-family: 'Georgia', serif;
+}
+
+.todo-container h2 {
+  font-style: italic;
+  font-weight: 400;
+  color: #4e342e;
+  margin-bottom: auto;
+}
+
+/* Checkbox always at bottom */
+.todo-container input[type="checkbox"] {
+  align-self: flex-start;
+  transform: scale(1.2);
+  margin-top: auto;
+  margin-bottom: 0;
+}

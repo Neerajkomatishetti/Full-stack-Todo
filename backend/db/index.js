@@ -5,7 +5,7 @@ mongoose.connect(process.env.MONGODB_URL);
 
 const TodoSchema = mongoose.Schema({
     title: String,
-    description: String
+    description: String,
 });
 
 const todo = mongoose.model('todo', TodoSchema);

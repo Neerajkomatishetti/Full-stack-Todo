@@ -3,10 +3,12 @@ const app = express();
 const { createTodo } = require('./types');
 const { updateTodo } = require('./types');
 const { todo } = require('./db');
+const cors = require('cors');
 
 
 
 app.use(express.json());
+app.use(cors());
 
 
 app.post('/todo', async function(req, res) {
@@ -32,7 +34,6 @@ app.post('/todo', async function(req, res) {
 
 app.get('/todos', async function(req, res){
     const Todos = await todo.find({});
-    console.log(Todos);
     res.json({ Todos });
 });
 
@@ -47,13 +48,14 @@ app.put('/completed', async function(req, res) {
         return;
     }else{
         const id = parsedPayload.data.id;
+        const isCompleted = parsedPayload.data.isCompleted;
         await todo.updateOne({ _id: id }, {
             "$set":{
-                description:"Nothing!!!1"
+                completed:isCompleted
             }
         });
         res.json({
-            msg:"Updated successfully!"
+            msg:"updated successfully!"
         })
     }
 
