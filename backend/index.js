@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const { createTodo } = require('./types');
-const { updateTodo } = require('./types');
+const { updateTodo, deleteTodo } = require('./types');
 const { todo } = require('./db');
 const cors = require('cors');
 
@@ -47,11 +47,11 @@ app.put('/completed', async function(req, res) {
         })
         return;
     }else{
-        const id = parsedPayload.data.id;
-        const isCompleted = parsedPayload.data.isCompleted;
+        const id = parsedPayload.data._id;
+        const completed = parsedPayload.data.completed;
         await todo.updateOne({ _id: id }, {
             "$set":{
-                completed:isCompleted
+                completed:completed
             }
         });
         res.json({
@@ -61,6 +61,26 @@ app.put('/completed', async function(req, res) {
 
 });
 
+app.delete('/deleteTodo', async function(req, res) {
+    const deletePayload = req.body;
+    const parsedDeletePayload = deleteTodo.safeParse(deletePayload);
+    if(!parsedDeletePayload.success){
+        res.status(411).json({
+            msg: "Wrong Id"
+        })
+        return;
+    }else{
+        const id = parsedDeletePayload.data._id;
+        await todo.deleteOne({
+            _id:id
+        });
+
+        res.json({
+            msg:"deleted successfully"
+        })
+    }
+
+});
 
 
 app.listen(3000, () => {

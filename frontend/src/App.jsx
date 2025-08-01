@@ -21,7 +21,7 @@ function App() {
   return (
     <div className='app-container'>
       <CreateTodo fetchTodos={fetchTodos} />
-      <Todo todos = {todos}/>
+      <Todo todos = {todos} fetchTodos={fetchTodos}/>
     </div>
   )
 }

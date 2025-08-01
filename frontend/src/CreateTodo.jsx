@@ -8,9 +8,10 @@
 
     return <div className = "createTodo-container">
     <div className="createTodo">
-        <input sttype="text" placeholder = "title"  onChange = {(e) => {setTitle(e.target.value);}}/>
-        <input type="text" placeholder = "description" onChange={(e) => {setDescription(e.target.value);}} />
-        <button onClick={function(){
+        <input type="text" placeholder = "title" value={title} onChange = {(e) => {setTitle(e.target.value);}}/>
+        <input type="text" placeholder = "description" value={description} onChange={(e) => {setDescription(e.target.value);}} />
+        <div className="button-container">
+            <button onClick={function(){
                 if (!title.trim() || !description.trim()) {
                     alert("Please fill in both title and description!");
                     return;
@@ -27,10 +28,13 @@
             }).then(async (res) => {
                 await res.json();
                 alert("Todo added!");
+                setTitle("");
+                setDescription("");
                 fetchTodos();
 
             })
         }}>Create Todo</button>
+        </div>
     </div>
     </div>
  }
