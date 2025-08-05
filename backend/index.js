@@ -4,11 +4,17 @@ const { createTodo } = require('./types');
 const { updateTodo, deleteTodo } = require('./types');
 const { todo } = require('./db');
 const cors = require('cors');
-
+const PORT = process.env.PORT || 3000;
+const origin = process.env.ORIGIN;
 
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: origin, // Replace with actual URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: false
+}));
+
 
 
 app.post('/todo', async function(req, res) {
@@ -83,6 +89,6 @@ app.delete('/deleteTodo', async function(req, res) {
 });
 
 
-app.listen(3000, () => {
-    console.log("listening on port 3000!");
+app.listen(PORT, () => {
+  console.log("listening on port", PORT);
 });
