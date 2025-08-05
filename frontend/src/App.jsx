@@ -2,12 +2,13 @@ import { useState , useEffect } from 'react'
 import './App.css'
 import {CreateTodo} from './CreateTodo.jsx'
 import {Todo} from './Todo.jsx'
+const API_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = () => {
-    fetch("https://full-stack-todo-zrz1.onrender.com/todos")
+    fetch(`${API_URL}/todos`)
       .then(async (res) => {
         const response = await res.json();
         setTodos(response.Todos);

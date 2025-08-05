@@ -1,3 +1,6 @@
+const API_URL = process.env.REACT_APP_API_URL;
+
+
 export function Todo({todos, fetchTodos}){
         
     return(<div className="todos-container">
@@ -6,7 +9,7 @@ export function Todo({todos, fetchTodos}){
             const completed = e.target.checked;
 
             try {
-                await fetch("https://full-stack-todo-zrz1.onrender.com/completed", {
+                await fetch(`${API_URL}/completed`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -38,7 +41,7 @@ export function Todo({todos, fetchTodos}){
 
                     <button  onClick={async function(){
                         if(confirm("Are you sure?")){
-                        const Response = await fetch('https://full-stack-todo-zrz1.onrender.com/deleteTodo', {
+                        const Response = await fetch(`${API_URL}/deleteTodo`, {
                             method:"DELETE",
                             headers:{
                                 "Content-type":"application/json",

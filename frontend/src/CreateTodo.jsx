@@ -1,5 +1,5 @@
  import {useState} from 'react'
- 
+ const API_URL = process.env.REACT_APP_API_URL;
  
  export function CreateTodo({ fetchTodos }) {
 
@@ -16,7 +16,7 @@
                     alert("Please fill in both title and description!");
                     return;
             }
-            fetch("https://full-stack-todo-zrz1.onrender.com/todo", {
+            fetch(`${API_URL}/todo`, {
                 method: "POST",
                 body: JSON.stringify({
                     title:title,
