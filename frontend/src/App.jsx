@@ -17,6 +17,7 @@ function App() {
 
   useEffect(() => {
     fetchTodos();
+    console.log(API_URL)
   }, []);
 
   return (
