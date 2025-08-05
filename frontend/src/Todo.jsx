@@ -6,7 +6,7 @@ export function Todo({todos, fetchTodos}){
             const completed = e.target.checked;
 
             try {
-                await fetch("http://localhost:3000/completed", {
+                await fetch("https://full-stack-todo-zrz1.onrender.com/completed", {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export function Todo({todos, fetchTodos}){
 
                     <button  onClick={async function(){
                         if(confirm("Are you sure?")){
-                        const Response = await fetch('http://localhost:3000/deleteTodo', {
+                        const Response = await fetch('https://full-stack-todo-zrz1.onrender.com/deleteTodo', {
                             method:"DELETE",
                             headers:{
                                 "Content-type":"application/json",

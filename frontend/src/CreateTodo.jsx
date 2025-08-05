@@ -16,7 +16,7 @@
                     alert("Please fill in both title and description!");
                     return;
             }
-            fetch("http://localhost:3000/todo", {
+            fetch("https://full-stack-todo-zrz1.onrender.com/todo", {
                 method: "POST",
                 body: JSON.stringify({
                     title:title,

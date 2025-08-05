@@ -7,7 +7,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = () => {
-    fetch("http://localhost:3000/todos")
+    fetch("https://full-stack-todo-zrz1.onrender.com/todos")
       .then(async (res) => {
         const response = await res.json();
         setTodos(response.Todos);
