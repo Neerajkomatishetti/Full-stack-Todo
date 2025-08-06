@@ -2,7 +2,7 @@ import { useState , useEffect } from 'react'
 import './App.css'
 import {CreateTodo} from './CreateTodo.jsx'
 import {Todo} from './Todo.jsx'
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 function App() {
   const [todos, setTodos] = useState([]);

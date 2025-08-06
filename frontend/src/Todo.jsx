@@ -1,10 +1,12 @@
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 
 export function Todo({todos, fetchTodos}){
+
+    const reversedTodos = [...todos].reverse();
         
     return(<div className="todos-container">
-        {todos.map((todo) => {
+        {reversedTodos.map((todo) => {
             const handleCheckboxChange = async (e) => {
             const completed = e.target.checked;
 
