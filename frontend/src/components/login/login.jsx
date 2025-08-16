@@ -2,13 +2,12 @@ import { useState } from "react";
 import './login.css'
 
 
-
 export function Login(){
 
     const [userEmail, setUserEmail] = useState("");
     const [userPass, setUserPass] = useState("");
 
-    return <div className="login-page-container">
+    return <div className="login-container">
         
         <form className="login-form">
 

@@ -3,12 +3,12 @@ body {
 
 }
 
-.login-page-container {
+/* .login-page-container {
     display: flex;
     height:100vh;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .login-form {
     display: flex;
@@ -41,9 +41,11 @@ body {
     height: 30px;
     min-width: 100px;
     max-width: 200px;
-    border:1px solid hsla(0, 6%, 58%, 0.637);
+    border:1px solid hsla(0, 0%, 100%, 0.637);
     border-radius: 5px;
-    padding:5px
+    padding:5px;
+    background: #bce0e0;
+    color:black
 }
 
 .login-form input:focus {
@@ -62,7 +64,7 @@ body {
     border:1px solid hsla(0, 6%, 58%, 0.637);
     border-radius: 5px;
     padding:2px;
-    background:hsl(180, 16%, 96%);
+    background:hsl(180, 84%, 44%);
 }
 
 .login-form button:active {
