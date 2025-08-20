@@ -7,16 +7,27 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const fetchTodos = () => {
-    fetch(`${API_URL}/todos`)
-      .then(async (res) => {
-        const response = await res.json();
-        setTodos(response.Todos);
-      });
-  };
+  // const fetchTodos = () => {
+  //   fetch(`${API_URL}/todos`)
+  //     .then(async (res) => {
+  //       const response = await res.json();
+  //       setTodos(response.Todos);
+  //     });
+  // };
 
   useEffect(() => {
+    const fetchTodos = async () => {
+      try {
+        const res = await fetch(`${API_URL}/todos`);
+        const response = await res.json();
+        setLoading(false);
+        setTodos(response.Todos);
+      } catch (error) {
+        console.error("Failed to fetch todos:", error);
+      }
+};
     fetchTodos();
     console.log(API_URL)
   }, []);
@@ -24,7 +35,7 @@ function App() {
   return (
     <div className='app-container'>
       <CreateTodo fetchTodos={fetchTodos} />
-      <Todo todos = {todos} fetchTodos={fetchTodos}/>
+      {loading? <div>loading...</div> : <Todo todos = {todos} fetchTodos={fetchTodos}/>}
       {/* <Login/> */}
     </div>
   )
